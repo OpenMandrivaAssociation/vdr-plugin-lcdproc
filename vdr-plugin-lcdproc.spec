@@ -1,7 +1,8 @@
 
 %define plugin	lcdproc
 %define name	vdr-plugin-%plugin
-%define version	0.0.10.jw7
+%define oversion 0.0.10-jw7
+%define version %(echo %oversion | tr -- - .)
 %define rel	1
 
 Summary:	VDR plugin: Output to LCD modules that are supported by LCDproc
@@ -9,24 +10,32 @@ Name:		%name
 Version:	%version
 Release:	%mkrel %rel
 Group:		Video
-License:	GPL
+License:	GPL+
 URL:		http://projects.vdr-developer.org/projects/show/plg-lcdproc
-Source:		http://projects.vdr-developer.org/attachments/download/86/vdr-%plugin-0.0.10-jw7.tgz
+Source:		http://projects.vdr-developer.org/attachments/download/86/vdr-%plugin-%oversion.tgz
+Patch0:		lcdproc-str-fmt.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
-%define Werror_cflags %nil
 
 %description
-
+Output VDR status to LCD modules that are supported by the LCDproc
+project.
 
 %prep
-%setup -q -n %plugin-0.0.10-jw7
+%setup -q -n %plugin-%oversion
+%patch0 -p1
 
 %vdr_plugin_prep
 chmod 0644 README*
 
 %vdr_plugin_params_begin %plugin
+# LCDproc host (default=localhost)
+var=LCD_HOST
+param="-h LCD_HOST"
+# LCDproc port (default=13666)
+var=LCD_PORT
+param="-p LCD_PORT"
 %vdr_plugin_params_end
 
 %build
