@@ -3,7 +3,7 @@
 %define name	vdr-plugin-%plugin
 %define oversion 0.0.10-jw7
 %define version %(echo %oversion | tr -- - .)
-%define rel	1
+%define rel	2
 
 Summary:	VDR plugin: Output to LCD modules that are supported by LCDproc
 Name:		%name
