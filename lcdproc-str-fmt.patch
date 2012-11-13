@@ -1,0 +1,13 @@
+Index: lcdproc-0.0.10-jw7/lcd.c
+===================================================================
+--- lcdproc-0.0.10-jw7/lcd.c
++++ lcdproc-0.0.10-jw7/lcd.c	2009-07-28 17:03:29.908093921 +0300
+@@ -912,7 +912,7 @@
+ 		  if ( (now.tv_usec < WakeUpCycle) && (replayDvbApi) ) {
+ 			  char tempbuffer[16];
+ 			  replayDvbApi->GetIndex(Current, Total, false); Total=(Total==0)?1:Total;
+-			  sprintf(tempbuffer,IndexToHMSF(Total));
++			  sprintf(tempbuffer,"%s",IndexToHMSF(Total));
+ 			  SetProgress(IndexToHMSF(Current),tempbuffer, (100 * Current) / Total);
+ 		  }
+ 
