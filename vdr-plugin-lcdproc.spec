@@ -11,7 +11,7 @@ Version:	%version
 Release:	%mkrel %rel
 Group:		Video
 License:	GPL+
-URL:		http://projects.vdr-developer.org/projects/show/plg-lcdproc
+URL:		https://projects.vdr-developer.org/projects/show/plg-lcdproc
 Source:		http://projects.vdr-developer.org/attachments/download/86/vdr-%plugin-%oversion.tgz
 Patch0:		lcdproc-str-fmt.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
