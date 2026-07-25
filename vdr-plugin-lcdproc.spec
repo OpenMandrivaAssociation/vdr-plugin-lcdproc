@@ -8,7 +8,7 @@
 Summary:	VDR plugin: Output to LCD modules that are supported by LCDproc
 Name:		%name
 Version:	%version
-Release:	%mkrel %rel
+Release:	%rel.1
 Group:		Video
 License:	GPL+
 URL:		https://projects.vdr-developer.org/projects/show/plg-lcdproc
